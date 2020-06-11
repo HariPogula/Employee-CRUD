@@ -1,0 +1,20 @@
+<body>
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+      <span
+        class="title btn"
+        [routerLink]="['/']"
+        routerLinkActive="router-link-active"
+        >Employee-Sample</span
+      >
+
+      <span
+        class="btn"
+        [routerLink]="['/create/employee']"
+        routerLinkActive="router-link-active"
+        >Add Employee</span
+      >
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <router-outlet></router-outlet>
+</body>

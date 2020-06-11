@@ -1,0 +1,82 @@
+<mat-card class="addEmp">
+  <form
+    class="example-form"
+    [formGroup]="empForm"
+    (ngSubmit)="addEmployee(); (false)"
+    novalidate
+  >
+    <mat-form-field class="example-full-width">
+      <mat-label>First Name:</mat-label>
+      <input
+        matInput
+        placeholder=" Enter First Name"
+        formControlName="firstname"
+      />
+    </mat-form-field>
+    <mat-error
+      *ngIf="
+        empForm.get('firstname').touched &&
+        empForm.get('firstname').errors?.required
+      "
+    >
+      First Name is required
+    </mat-error>
+    <mat-form-field class="example-full-width">
+      <mat-label>Last Name:</mat-label>
+      <input
+        matInput
+        placeholder="Enter Last Name"
+        formControlName="lastname"
+      />
+    </mat-form-field>
+    <mat-error
+      *ngIf="
+        empForm.get('lastname').touched &&
+        empForm.get('lastname').errors?.required
+      "
+    >
+      Last Name is required
+    </mat-error>
+    <mat-form-field class="example-full-width">
+      <mat-label>Email:</mat-label>
+      <input matInput placeholder="Enter Email:" formControlName="email" />
+    </mat-form-field>
+    <mat-error
+      *ngIf="
+        empForm.get('email').touched && empForm.get('email').errors?.required
+      "
+    >
+      Email is required
+    </mat-error>
+    <mat-error *ngIf="empForm.get('email').errors?.email">
+      Email is is NOT correct format
+    </mat-error>
+    <mat-form-field class="example-full-width">
+      <mat-label>Age:</mat-label>
+      <input matInput placeholder="Enter Age" formControlName="age" />
+    </mat-form-field>
+    <mat-error
+      *ngIf="empForm.get('age').touched && empForm.get('age').errors?.required"
+    >
+      Age is required
+    </mat-error>
+    <!-- <mat-error *ngIf="empForm.get('age').errors?.minlength">
+        Age should be mininmum of 10
+      </mat-error>
+      <mat-error *ngIf="empForm.get('age').errors?.maxlength">
+        Age should NOT exceed 100
+      </mat-error> -->
+    <mat-slide-toggle formControlName="active">Active</mat-slide-toggle>
+    <br /><br />
+    <!-- <button [disabled]="!empForm.valid" color="btn btn-primary">
+        {{ btnLbl }}
+      </button> -->
+    <button mat-raised-button color="primary">
+      {{ btnLbl }}
+    </button>
+    &nbsp;&nbsp;
+    <!-- <button type="button" mat-dialog-close mat-raised-button color="accent">
+        Cancel
+      </button> -->
+  </form>
+</mat-card>

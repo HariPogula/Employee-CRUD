@@ -1,0 +1,32 @@
+<div class="row container">
+  <span class="col-md-10"> </span>
+  <button mat-mini-fab color="accent" (click)="createEmployee()">
+    <mat-icon>add</mat-icon>
+  </button>
+</div>
+<div class="row">
+  <div *ngFor="let item of employees" class="col-md-3 sectionCard">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <h4>
+          <b> {{ item.firstname }}{{ item.lastname }} </b>
+        </h4>
+        <br />
+      </mat-card-header>
+
+      <mat-card-content>
+        <br />
+        <p>
+          Age: {{ item.age }}<br />
+          Email: {{ item.email }} <br />Ative:{{ item.active }}
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button (click)="updateEmployee(item)" mat-button color="accent">
+          Edit Section
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
+<router-outlet></router-outlet>
